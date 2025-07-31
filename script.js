@@ -137,4 +137,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     initTimelineAnimation();
+
+
+    // ======== GESTION DU MENU HAMBURGER ========
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        // Active/désactive le menu
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
 });

@@ -656,103 +656,120 @@ footer {
     }
 }
 
-/* ================================================= */
-/* ======== CODE POUR L'ADAPTATION MOBILE ======== */
-/* ================================================= */
+/* ========================================================= */
+/* ======== NOUVEAU CODE MOBILE PROFESSIONNEL ======== */
+/* ========================================================= */
 
-/* On applique ces styles pour tous les écrans de 768px de largeur ou moins */
 @media (max-width: 768px) {
 
-    /* --- Ajustements Généraux --- */
-    h1, .hero-title {
-        font-size: 2.5rem !important; /* Réduit la taille des titres principaux */
+    /* --- 1. Style du Menu Hamburger --- */
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 101; /* Doit être au-dessus de tout */
     }
 
-    h2.section-title {
-        font-size: 2rem; /* Réduit la taille des titres de section */
+    .hamburger-menu .bar {
+        height: 3px;
+        width: 100%;
+        background-color: var(--text-color);
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
     }
 
-    /* --- Navigation --- */
-    header nav {
-        flex-direction: column; /* Le logo et les liens passent l'un sous l'autre */
-        gap: 15px;
+    /* Animation du hamburger en croix (X) */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
     }
 
-    header nav ul {
-        gap: 20px; /* Réduit l'espace entre les liens du menu */
-        flex-wrap: wrap; /* Permet aux liens de passer à la ligne si besoin */
+    /* --- 2. Style du Panneau de Navigation --- */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        background: rgba(10, 10, 20, 0.9);
+        backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+        transform: translateX(100%); /* Caché par défaut */
+        transition: transform 0.4s ease-in-out;
+        z-index: 100;
     }
 
-    /* --- Section Services --- */
-    .services-container {
-        flex-direction: column; /* Les cartes de service se placent verticalement */
-        align-items: center; /* Centre les cartes */
+    .nav-links.active {
+        transform: translateX(0); /* Apparaît quand le menu est actif */
     }
 
-    /* --- Section Réalisations (Projets) --- */
-    .projets-container {
-        grid-template-columns: 1fr; /* Une seule colonne pour les projets */
+    .nav-links ul {
+        flex-direction: column;
+        text-align: center;
         gap: 40px;
     }
-    
-    .projet-card-pro {
-        /* Assure que la carte ne devient pas trop large sur mobile */
-        max-width: 450px; 
-        margin: 0 auto; /* Centre la carte dans la grille */
+
+    /* --- 3. Disposition par Cartes Horizontales (Services) --- */
+    #services {
+        /* Permet de ne pas couper les ombres des cartes */
+        padding-left: 0;
+        padding-right: 0;
     }
 
-
-    /* --- Section À Propos (Timeline) --- */
-    /* On transforme la timeline double face en une simple liste verticale */
-    .timeline-container::after {
-        left: 30px; /* Déplace la ligne centrale sur la gauche */
-    }
-
-    .timeline-container li {
-        width: 100%;
-        padding-left: 70px; /* Espace pour la ligne et le cercle */
-        padding-right: 15px;
-        left: 0 !important; /* Force toutes les cartes à être à gauche */
-        transform: none; /* Annule le décalage initial pour l'animation */
+    .services-container {
+        display: flex;
+        flex-direction: row; /* Direction horizontale */
+        overflow-x: auto; /* Permet le défilement horizontal */
+        padding: 20px;
+        /* Ajoute un effet de "snap" pour que les cartes se centrent */
+        scroll-snap-type: x mandatory;
+        gap: 20px;
     }
     
-    /* La classe 'visible' se chargera juste de l'opacité */
-    .timeline-container li.visible {
-        transform: none;
+    /* Cache la barre de défilement pour un look plus propre */
+    .services-container::-webkit-scrollbar {
+        display: none;
     }
 
-    .timeline-container li:nth-child(even) {
-        left: 0; /* Annule le décalage pour les cartes paires */
+    .service-card {
+        flex: 0 0 80%; /* Chaque carte prend 80% de la largeur de l'écran */
+        scroll-snap-align: center; /* Centre la carte lors du défilement */
+        max-width: 300px;
     }
 
-    .timeline-container li::after {
-        left: 20px; /* Positionne le cercle sur la nouvelle ligne */
-    }
+    /* --- 4. Ajustements des autres sections --- */
+    h1, .hero-title { font-size: 2.5rem !important; }
+    h2.section-title { font-size: 2rem; }
+    
+    .projets-container { grid-template-columns: 1fr; }
+    .projet-card-pro { max-width: 90vw; margin: 0 auto; } /* Prend 90% de la largeur */
 
-    /* --- Section Contact --- */
-    .contact-container {
-        grid-template-columns: 1fr; /* Une seule colonne */
-        gap: 50px;
-    }
+    .timeline-container::after { left: 30px; }
+    .timeline-container li { width: 100%; padding-left: 70px; left: 0 !important; transform: none; }
+    .timeline-container li.visible { transform: none; }
+    .timeline-container li::after { left: 20px; }
+    
+    .contact-container { grid-template-columns: 1fr; }
+    .contact-form { order: 2; }
+    .contact-info { order: 1; text-align: center; }
 
-    .contact-form {
-        order: 2; /* Place le formulaire après les infos de contact */
-    }
-    .contact-info {
-        order: 1;
-        text-align: center;
-    }
+    .footer-links { flex-direction: column; gap: 15px; }
+}
 
-    .contact-info ul {
-        justify-content: center;
-        text-align: left;
-    }
-
-
-    /* --- Pied de page (Footer) --- */
-    .footer-links {
-        flex-direction: column; /* Les liens se placent verticalement */
-        gap: 15px;
+/* Cache le menu hamburger sur les grands écrans */
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
     }
 }
