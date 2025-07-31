@@ -1,0 +1,657 @@
+/* ======== CONFIGURATION GÉNÉRALE ET VARIABLES DE COULEUR ======== */
+:root {
+    --dark-bg: #0a0a14;
+    --primary-blue: #0D69FF; /* Le bleu vibrant de votre logo */
+    --accent-yellow: #FFD700; /* Le jaune éclair que vous avez demandé */
+    --text-color: #EAEAEA;
+    --font-main: 'Exo 2', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logo a {
+    font-weight: 700; /* Police grasse */
+    font-size: 2rem; /* Taille augmentée pour plus d'impact */
+    color: var(--text-color);
+    text-decoration: none;
+    text-shadow: 0 0 8px var(--primary-blue); /* Effet néon bleu */
+    letter-spacing: 2px; /* Espace légèrement les lettres */
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+/* Dans la section /* ======== SECTION RÉALISATIONS (STYLE PRO) ======== */
+.image-after {
+    border-right: 3px solid var(--accent-yellow); /* La ligne de séparation devient jaune */
+}
+.slider-handle, .handle-arrows {
+    background: var(--accent-yellow); /* La poignée devient jaune */
+}
+.handle-line {
+    background: var(--accent-yellow); /* Les lignes de la poignée deviennent jaunes */
+}
+
+/* ======== HEADER & NAVIGATION ======== */
+.cta-button:hover {
+    background-color: var(--accent-yellow); /* Fond jaune au survol */
+    color: var(--dark-bg);
+    border-color: var(--accent-yellow); /* Bordure jaune */
+    box-shadow: 0 0 15px var(--accent-yellow);
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 20px 5%;
+    background: rgba(10, 10, 20, 0.5); /* Fond semi-transparent */
+    backdrop-filter: blur(10px); /* Effet de verre dépoli */
+    border-bottom: 1px solid rgba(0, 238, 255, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--primary-blue); /* Effet néon subtil */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Animation de la ligne d'énergie sous les liens */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-blue));
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Transition douce */
+}
+
+nav ul li a:hover {
+    color: var(--primary-blue);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.cta-button {
+    border: 2px solid var(--primary-blue);
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-blue);
+    color: var(--dark-bg);
+    box-shadow: 0 0 15px var(--primary-blue);
+}
+
+
+/* ======== HERO SECTION ======== */
+#hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5%;
+    position: relative; /* Indispensable pour positionner l'animation d'arrière-plan */
+    background: radial-gradient(circle, rgba(13, 38, 73, 0.5) 0%, var(--dark-bg) 70%);
+}
+
+.hero-content {
+    z-index: 2; /* S'assure que le texte est au-dessus de l'animation */
+}
+
+.hero-title {
+    font-size: 4rem; /* 4 fois la taille de police de base */
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 238, 255, 0.7);
+    animation: fadeInDown 1.5s forwards;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    max-width: 600px;
+    animation: fadeInUp 1.5s 0.5s forwards; /* 0.5s de délai */
+    opacity: 0; /* Initialement invisible */
+}
+/* ======== ANIMATION DE FOUDRE (CANVAS) ======== */
+#lightning-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Se place derrière le contenu mais au-dessus du fond */
+}
+
+/* ======== STYLE DU SLIDER CINÉMATIQUE ======== */
+.slides-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* S'assure que les slides sont au-dessus du canvas */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5%;
+    
+    /* Transition pour l'apparition/disparition */
+    opacity: 0;
+    visibility: hidden; /* Empêche l'interaction avec les slides cachées */
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+.slide.active-slide {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* On s'assure que les animations du texte peuvent se ré-appliquer */
+.slide .hero-title,
+.slide .hero-subtitle {
+    opacity: 0; /* Caché par défaut */
+}
+
+.slide.active-slide .hero-title {
+    animation: fadeInDown 1.5s 0.5s forwards; /* 0.5s de délai */
+}
+
+.slide.active-slide .hero-subtitle {
+    animation: fadeInUp 1.5s 1s forwards; /* 1s de délai */
+}
+
+/* ======== SECTION NOS SERVICES ======== */
+#services {
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: var(--primary-blue);
+    text-shadow: 0 0 10px var(--primary-blue);
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne sur les petits écrans */
+}
+
+.service-card {
+    background: rgba(20, 20, 35, 0.6); /* Fond sombre légèrement bleuté */
+    border: 1px solid rgba(0, 238, 255, 0.2);
+    border-radius: 10px;
+    padding: 40px;
+    max-width: 350px;
+    text-align: center;
+    position: relative; /* Indispensable pour la bordure animée */
+    overflow: hidden; /* Cache les parties de la bordure qui dépassent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Fait léviter la carte */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.service-card .service-icon svg {
+    width: 60px;
+    height: 60px;
+    stroke: var(--primary-blue); /* Couleur de l'icône */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon svg {
+    transform: scale(1.1); /* Grossit l'icône */
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(234, 234, 234, 0.8);
+}
+
+/* ======== SECTION RÉALISATIONS ======== */
+/* ======== SECTION RÉALISATIONS (STYLE PRO) ======== */
+#projets {
+    padding: 100px 5%;
+    background-color: #05050C;
+}
+
+.projets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 50px;
+}
+
+.projet-card-pro {
+    background: var(--dark-bg);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.comparison-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: col-resize;
+}
+
+.image-before, .image-after {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.image-before img, .image-after img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* Empêche les images d'être sélectionnées */
+}
+
+.image-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Initialement, on ne voit que 50% de l'image "après" */
+    height: 100%;
+    border-right: 3px solid var(--accent-yellow);
+}
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Le handle ne doit pas intercepter les clics */
+    z-index: 5;
+}
+
+.handle-line {
+    width: 3px;
+    height: 30%;
+    background: var(--accent-yellow);
+    flex-shrink: 1;
+}
+
+.handle-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-yellow);
+    border-radius: 50%;
+    padding: 5px;
+    margin: 10px 0;
+    flex-shrink: 0;
+}
+
+.handle-arrows svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--dark-bg);
+}
+
+.label {
+    position: absolute;
+    top: 10px;
+    padding: 5px 15px;
+    background: rgba(10, 10, 20, 0.7);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.image-before .label { left: 10px; }
+.image-after .label { right: 10px; }
+
+.projet-details {
+    padding: 20px 25px;
+}
+.projet-details h3 { font-size: 1.5rem; margin: 0 0 15px 0; }
+.projet-details p { font-size: 1rem; margin-bottom: 5px; color: rgba(234, 234, 234, 0.7); }
+.projet-details .detail-label { font-weight: bold; color: var(--primary-blue); margin-right: 5px; }
+
+
+/* ======== SECTION À PROPOS (TIMELINE) ======== */
+#a-propos {
+    padding: 100px 5%;
+    background: var(--dark-bg);
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* La ligne centrale de la timeline */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--primary-blue);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    box-shadow: 0 0 10px var(--primary-blue);
+}
+
+.timeline-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-container li {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+    opacity: 0; /* Invisible par défaut pour l'animation */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Positionnement des cartes à gauche et à droite */
+.timeline-container li:nth-child(odd) {
+    left: 0;
+    transform: translateX(-50px); /* Décalé pour l'animation */
+}
+
+.timeline-container li:nth-child(even) {
+    left: 50%;
+    transform: translateX(50px); /* Décalé pour l'animation */
+}
+
+/* La classe qui rendra les éléments visibles au scroll */
+.timeline-container li.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-content {
+    padding: 25px;
+    background: rgba(20, 20, 35, 0.8);
+    border: 1px solid rgba(0, 238, 255, 0.2);
+    border-radius: 10px;
+    position: relative;
+}
+
+.timeline-year {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    background: var(--accent-yellow);
+    color: var(--dark-bg);
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--primary-blue);
+}
+
+/* Les cercles sur la ligne centrale */
+.timeline-container li::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--dark-bg);
+    border: 3px solid var(--primary-blue);
+    top: 35px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-container li:nth-child(even)::after {
+    left: -10px;
+}
+
+/* ======== SECTION CONTACT ======== */
+#contact {
+    padding: 100px 5%;
+    background: #05050C;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-form h3, .contact-info h3 {
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(234, 234, 234, 0.3);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: var(--font-main);
+    transition: border-color 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: rgba(234, 234, 234, 0.5);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Animation du label qui monte */
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label {
+    top: -20px;
+    left: 0;
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-bottom-color: var(--primary-blue);
+}
+
+.submit-btn {
+    padding: 15px 30px;
+    background: var(--primary-blue);
+    color: var(--dark-bg);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--primary-blue);
+}
+
+.contact-info p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-info li span {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+/* ======== FOOTER ======== */
+footer {
+    background: #000;
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.footer-logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-blue);
+}
+
+.copyright {
+    color: rgba(234, 234, 234, 0.5);
+    font-size: 0.9rem;
+}
+
+
+/* === Animation de la bordure énergétique === */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Commence en dehors de la carte */
+    width: 100%;
+    height: 3px; /* Épaisseur de la ligne d'énergie */
+    background: linear-gradient(90deg, transparent, var(--accent-yellow));
+    transition: left 0.5s ease-in-out;
+}
+
+.service-card:hover::before {
+    left: 100%; /* Fait traverser la ligne sur toute la largeur */
+}
+
+/* Animations d'entrée pour le texte */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

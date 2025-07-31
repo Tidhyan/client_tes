@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Entreprise Électricité - La Puissance Maîtrisée</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                 <a href="#">T.E.S</a>
+            </div>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projets">Réalisations</a></li>
+                <li><a href="#a-propos">À Propos</a></li>
+                <li><a href="#contact" class="cta-button">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+       <section id="hero">
+    <canvas id="lightning-canvas"></canvas>
+
+    <div class="slides-container">
+
+        <div class="slide active-slide" data-background="radial-gradient(circle, rgba(13, 38, 73, 0.5) 0%, var(--dark-bg) 70%)">
+            <div class="hero-content">
+                <h1 class="hero-title">Nous connectons votre monde à sa puissance.</h1>
+                <p class="hero-subtitle">Solutions haute tension pour l'industrie et les infrastructures urbaines.</p>
+            </div>
+        </div>
+
+        <div class="slide" data-background="radial-gradient(circle, rgba(53, 23, 83, 0.5) 0%, var(--dark-bg) 70%)">
+            <div class="hero-content">
+                <h1 class="hero-title">L'énergie fiable, au cœur de votre quotidien.</h1>
+                <p class="hero-subtitle">Distribution sécurisée et maintenance préventive des réseaux électriques.</p>
+            </div>
+        </div>
+
+        <div class="slide" data-background="radial-gradient(circle, rgba(83, 23, 23, 0.5) 0%, var(--dark-bg) 70%)">
+            <div class="hero-content">
+                <h1 class="hero-title">La puissance qui alimente votre production.</h1>
+                <p class="hero-subtitle">Installations et raccordements sur-mesure pour les sites les plus exigeants.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="services">
+        <h2 class="section-title">Notre Expertise</h2>
+        <div class="services-container">
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 12v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8Z"/><path d="M14 4v8"/><path d="M4 12V4"/><path d="M22 12v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8Z"/><path d="M22 4v8"/><path d="M12 4h6a2 2 0 0 1 2 2v2"/><path d="M12 20h-2a2 2 0 0 1-2-2v-2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.09 16.05a1 1 0 0 1-1.41 0L12 14.41l-1.68 1.64a1 1 0 0 1-1.41-1.41L10.59 13l-1.64-1.68a1 1 0 0 1 1.41-1.41L12 11.59l1.68-1.64a1 1 0 1 1 1.41 1.41L13.41 13l1.64 1.68a1 1 0 0 1 0 1.41z"/><path d="M12 2a7 7 0 0 0-7 7c0 3.04 1.9 5.59 4.5 6.64V17h5v-1.36c2.6-1.05 4.5-3.6 4.5-6.64a7 7 0 0 0-7-7z"/></svg>
+                </div>
+                <h3>Installations Haute Tension</h3>
+                <p>Déploiement et raccordement de transformateurs et postes de livraison pour les quartiers et les grands complexes industriels.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3>Maintenance Industrielle</h3>
+                <p>Contrats de maintenance préventive et curative pour garantir une alimentation électrique fiable et continue 24/7.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4l2 2"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m4.93 19.07 1.41-1.41"/><path d="m17.66 6.34 1.41-1.41"/></svg>
+                </div>
+                <h3>Audit & Conformité</h3>
+                <p>Analyse de vos installations existantes, mise aux normes et optimisation de votre consommation énergétique.</p>
+            </div>
+
+        </div>
+    </section>
+
+   <section id="projets">
+    <h2 class="section-title">Nos Réalisations</h2>
+    <div class="projets-container">
+
+        <div class="projet-card-pro">
+            <div class="comparison-slider">
+                <div class="image-before">
+                    <img src="https://picsum.photos/seed/transformer-before/800/600" alt="Avant - Poste de transformation">
+                    <span class="label">Avant</span>
+                </div>
+                <div class="image-after">
+                    <img src="https://picsum.photos/seed/transformer-after/800/600" alt="Après - Poste de transformation">
+                    <span class="label">Après</span>
+                </div>
+                <div class="slider-handle">
+                    <div class="handle-line"></div>
+                    <div class="handle-arrows">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                    <div class="handle-line"></div>
+                </div>
+            </div>
+            <div class="projet-details">
+                <h3>Modernisation d'un Poste de Transformation</h3>
+                <p><span class="detail-label">Lieu:</span> Zone Industrielle de Vridi</p>
+                <p><span class="detail-label">Résultat:</span> Augmentation de la capacité et de la fiabilité de l'alimentation.</p>
+            </div>
+        </div>
+
+        <div class="projet-card-pro">
+            <div class="comparison-slider">
+                <div class="image-before">
+                    <img src="https://picsum.photos/seed/substation-before/800/600" alt="Avant - Maintenance">
+                    <span class="label">Avant</span>
+                </div>
+                <div class="image-after">
+                    <img src="https://picsum.photos/seed/substation-after/800/600" alt="Après - Maintenance">
+                    <span class="label">Après</span>
+                </div>
+                <div class="slider-handle">
+                    <div class="handle-line"></div>
+                    <div class="handle-arrows">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </div>
+                    <div class="handle-line"></div>
+                </div>
+            </div>
+            <div class="projet-details">
+                <h3>Maintenance Préventive d'un Poste Source</h3>
+                <p><span class="detail-label">Lieu:</span> Abidjan Nord</p>
+                <p><span class="detail-label">Résultat:</span> Durée de vie des équipements prolongée et fiabilité accrue.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="a-propos">
+    <h2 class="section-title">Notre Histoire, Votre Confiance</h2>
+    <div class="timeline-container">
+        <ul>
+            <li>
+                <div class="timeline-content">
+                    <div class="timeline-year">2015</div>
+                    <h3>Fondation de l'Entreprise</h3>
+                    <p>Création par une équipe d'ingénieurs passionnés avec une vision : moderniser l'accès à l'énergie haute tension en Côte d'Ivoire.</p>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-content">
+                    <div class="timeline-year">2017</div>
+                    <h3>Premier Grand Projet Industriel</h3>
+                    <p>Signature de notre premier contrat majeur pour le raccordement complet d'une nouvelle usine, établissant notre réputation de fiabilité.</p>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-content">
+                    <div class="timeline-year">2020</div>
+                    <h3>Certification ISO 9001</h3>
+                    <p>Obtention de la certification internationale, garantissant la qualité de nos processus et notre engagement envers l'excellence.</p>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-content">
+                    <div class="timeline-year">2025</div>
+                    <h3>Leader du Secteur</h3>
+                    <p>Reconnus comme un acteur clé dans les projets d'infrastructures électriques, nous continuons d'innover pour un avenir énergétique durable.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+</section>
+
+    <section id="contact">
+        <h2 class="section-title">Nous Contacter</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h3>Envoyez-nous un message</h3>
+                <form action="#" method="POST">
+                    <div class="input-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Votre Nom</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Votre Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">Sujet</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Votre Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer le Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Informations Directes</h3>
+                <p>N'hésitez pas à nous joindre directement. Notre équipe est disponible pour discuter de vos projets les plus ambitieux.</p>
+                <ul>
+                    <li>
+                        <span>📍</span>
+                        <p>Zone 4C, Rue du Canal, Abidjan, Côte d'Ivoire</p>
+                    </li>
+                    <li>
+                        <span>📞</span>
+                        <p>+225 07 08 09 10 11</p>
+                    </li>
+                    <li>
+                        <span>✉️</span>
+                        <p>contact@votre-entreprise.ci</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+        </main>
+
+     <footer>
+    <div class="footer-content">
+        
+        <div class="footer-logo logo">T.E.S</div>
+        <ul class="footer-links">
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projets">Réalisations</a></li>
+            <li><a href="#a-propos">À Propos</a></li>
+        </ul>
+        <p class="copyright">© 2025 Votre Entreprise Électricité. Tous droits réservés. Un chef-d'œuvre conçu par Nuleor 1.</p>
+    </div>
+</footer>   
+
+    <script src="script.js"></script>
+</body>
+</html>
