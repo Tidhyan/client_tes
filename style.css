@@ -655,3 +655,104 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* ================================================= */
+/* ======== CODE POUR L'ADAPTATION MOBILE ======== */
+/* ================================================= */
+
+/* On applique ces styles pour tous les écrans de 768px de largeur ou moins */
+@media (max-width: 768px) {
+
+    /* --- Ajustements Généraux --- */
+    h1, .hero-title {
+        font-size: 2.5rem !important; /* Réduit la taille des titres principaux */
+    }
+
+    h2.section-title {
+        font-size: 2rem; /* Réduit la taille des titres de section */
+    }
+
+    /* --- Navigation --- */
+    header nav {
+        flex-direction: column; /* Le logo et les liens passent l'un sous l'autre */
+        gap: 15px;
+    }
+
+    header nav ul {
+        gap: 20px; /* Réduit l'espace entre les liens du menu */
+        flex-wrap: wrap; /* Permet aux liens de passer à la ligne si besoin */
+        justify-content: center;
+    }
+
+    /* --- Section Services --- */
+    .services-container {
+        flex-direction: column; /* Les cartes de service se placent verticalement */
+        align-items: center; /* Centre les cartes */
+    }
+
+    /* --- Section Réalisations (Projets) --- */
+    .projets-container {
+        grid-template-columns: 1fr; /* Une seule colonne pour les projets */
+        gap: 40px;
+    }
+    
+    .projet-card-pro {
+        /* Assure que la carte ne devient pas trop large sur mobile */
+        max-width: 450px; 
+        margin: 0 auto; /* Centre la carte dans la grille */
+    }
+
+
+    /* --- Section À Propos (Timeline) --- */
+    /* On transforme la timeline double face en une simple liste verticale */
+    .timeline-container::after {
+        left: 30px; /* Déplace la ligne centrale sur la gauche */
+    }
+
+    .timeline-container li {
+        width: 100%;
+        padding-left: 70px; /* Espace pour la ligne et le cercle */
+        padding-right: 15px;
+        left: 0 !important; /* Force toutes les cartes à être à gauche */
+        transform: none; /* Annule le décalage initial pour l'animation */
+    }
+    
+    /* La classe 'visible' se chargera juste de l'opacité */
+    .timeline-container li.visible {
+        transform: none;
+    }
+
+    .timeline-container li:nth-child(even) {
+        left: 0; /* Annule le décalage pour les cartes paires */
+    }
+
+    .timeline-container li::after {
+        left: 20px; /* Positionne le cercle sur la nouvelle ligne */
+    }
+
+    /* --- Section Contact --- */
+    .contact-container {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        gap: 50px;
+    }
+
+    .contact-form {
+        order: 2; /* Place le formulaire après les infos de contact */
+    }
+    .contact-info {
+        order: 1;
+        text-align: center;
+    }
+
+    .contact-info ul {
+        justify-content: center;
+        text-align: left;
+    }
+
+
+    /* --- Pied de page (Footer) --- */
+    .footer-links {
+        flex-direction: column; /* Les liens se placent verticalement */
+        gap: 15px;
+    }
+}
